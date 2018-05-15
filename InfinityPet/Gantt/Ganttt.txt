@@ -1,0 +1,63 @@
+primera fase: frontend 01
+
+Logo
+misión
+visión
+Objetivo
+Contratación del quipo
+Toma y análisis de requerimientos
+Propuesta para solucionar el problema
+	de una o varias tiendas abiertas 
+Hacer commits
+
+Segunda fase: frontend 02
+Defincición del framework: materialize
+Construcción del GRID
+Seleccionar templates
+Implementar uno o más scripts (Javascript)
+Implementar uno o más scripts (jQuery)
+Implementar una o más APIs (Google Maps, Facebook, otra)
+Implementar cambios de fuente (2 al menos)
+Manual de página web
+
+
+Tercera fase: backend (cliente)
+login
+sistema para agendar citas
+manejador de sesiones
+servidor
+recuperar contraseña olvidada (correo)
+Base de datos (SQLite 3)
+carrito de compras (agregar)
+carrito de compras (borrar)
+
+Cuarta fase: backend (administrador)
+Agregar, eliminar y modificar (productos)
+Añadir promociones
+Modificar las cantidades de los productos
+	existentes
+Base de datos (SQLite 3)
+Verificar visibilidad desde cualquier parte del mundo
+
+Quinta fase: backend (papeleo)
+
+Manual de uso:
+o Descripción
+o Pruebas de estrés
+o Ejecución
+o Flujo del sistema (Incluir capturas de pantalla).
+o Limitaciones (si hay alguna)
+
+Documentación con pydoc
+
+Diagrama de clases UML si es que se utilizan clases
+Presentación del proyecto
+
+
+Sexta fase:backend (extra)
+Historial de ventas/visitas realizadas (geneal)
+Historial de ventas/visitas (por cliente)
+API REST (que se pueda consumir)
+
+
+

@@ -1,0 +1,49 @@
+{% extends 'cuerpo/base.html'%}
+{% load staticfiles %}
+
+  <!-- LINKEOS -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="static/img/logo2.png" />
+  <link rel="stylesheet" href={% static 'css/styleIndex.css' %}>
+  <link href="https://fonts.googleapis.com/css?family=Jockey+One" rel="stylesheet">
+  <link rel="stylesheet" href={% static 'css/buttons.css' %}>
+  <link rel="stylesheet" href={% static 'css/materialize.min.css' %}>
+
+  <!-- TERMINAN LINKEOS -->
+
+
+{% block content %}
+
+
+        <!--Se linkea con citas-->
+       <center>
+          <div class="col s12" > <h1 >CITAS</h1></div>
+           <h3>{{ user }}</h3>
+
+        {% for cita in citasi%}
+
+    <body>
+              <div class="row">
+
+      <div class="col s6">Fecha: {{ cita.hora_inicio }}
+
+          <div>Paquete: {{ cita.num_paquete }}
+
+          </div>
+
+      </div><div class="col s6"><button type="submit" value="Cancelar">Cancelar</button> </div>
+
+
+              </div>
+</body>
+
+        {% endfor %}
+</center>
+{% endblock %}
+<!-- SCRIPTS -->
+<script src={% static 'js/jquery.js' %}></script>
+<script src={% static 'js/materialize.min.js' %}></script>
+<script type="text/javascript" src={% static 'js/appTienda.js' %}></script>
+<script src={% static 'css/styleTienda.css' %}></script>

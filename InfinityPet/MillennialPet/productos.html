@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+<head>
+  <title>Productos</title>
+
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo2.png" />
+
+
+
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" type="image/jpg" href="img/pro.jpg">
+
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="css/styleTienda.css">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/estilos-pro.css">
+  
+  <link rel="stylesheet" type="text/css" href="css/zoom.css">
+  <script src="js/angular-pro.min.js" ></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body ng-controller="movieCtrl as movie">
+
+
+
+
+  <!-- COMIENZO DEL NAV -->
+<a name="arriba"></a>
+<div class="navbar-fixed"> 
+<nav>
+    <div id="site-header" class="nav-wrapper black">
+      <a href="index.html" class="brand-logo center"><img src="img/logo240.png"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="packs.html">Paquetes</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="unete.html">Únete</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acercade.html">¿Quiénes somos?</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+<!-- TERMINA NAV -->
+<!-- COMIENZA SIDENAV -->
+  <ul class="sidenav blue-darken" id="mobile-demo">
+    <li><div class="user-view">
+      <div class="background">
+        <img class="responsive-img" src="img/bulldog3.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="img/logo1.png"></a>
+      <a href="#name"><span class="white-text name">Millennial Pet</span></a>
+      <a href="#email"><span class="white-text email">Sonríe más, ladra menos</span></a>
+    </div></li>
+    
+     <li><a href="index.html"><i class="material-icons">home</i>Home</a></li>
+     <li><a href="packs.html"><i class="material-icons">card_travel</i>Paquetes</a></li>
+     <li><a href="productos.html"><i class="material-icons">dialpad</i>Productos</a></li>
+     <li><a href="#"><i class="material-icons">attach_money</i>Promociones</a></li>
+     <li><a href="contacto.html"><i class="material-icons">call</i>Contacto</a></li>
+    
+    <li><div class="divider"></div></li>
+    <li><a class="subheader"><i class="material-icons">person</i> Cuenta</a></li>
+    <li><a class="waves-effect" href="iniciarSesión.html"><i class="material-icons">subdirectory_arrow_right</i> Iniciar sesión</a></li>
+    <li><a class="waves-effect" href="registro.html"><i class="material-icons">person_add</i> Registrarse</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect" href="acercade.html"><i class="material-icons"></i>Acerca de nosotros</a></li>
+   
+  </ul>
+<!-- TERMINA SIDENAV -->
+
+<nav>
+    <div class="nav-wrapper black">
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            
+            <ul class="brand-logo center">
+            <li><font color=white><input  type="text" size="30" placeholder="Buscar" ng-model="search"></font></li>
+            </ul>
+            
+            <ul class="left hide-on-med-and-down">
+              <li><a href="#"></a></li> 
+              <li><a href="#">Ropa</a></li>
+              <li><a href="badges.html">Juguetes</a></li>
+              <li><a href="collapsible.html">Accesorios</a></li>
+              <li><a href="mobile.html">Extra</a></li>
+
+            </ul>
+
+            <ul class="right hide-on-med-and-down">
+          
+              <li><a href="iniciarSesión.html" targ et="_blank"><img src="img/carrito60.png" class="hide-on-med-and-down" alt="carro" width="38px"/></a></li>
+
+              <!-- Modal Trigger -->
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Musiquita</a>
+
+              <!-- Modal Structure -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+
+                  <audio controls>
+   
+    <source src="src/Kungs - I FEEL SO BAD (Official Video) ft. Ephemerals.mp3" type="audio/mpeg">
+   
+        <object type="application/x-shockwave-flash" data="player.swf?miArchivo=mi-archivo-de-audio.mp3">
+            <param name="movie" value="player.swf?miArchivo=mi-archivo-de-audio.mp3">
+        </object>
+</audio>
+
+                  <h4>Modal Header</h4>
+                  <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+              </div>
+            </ul>
+          </div>
+  </nav>
+
+
+
+
+
+  <main>
+
+    <div class="container">
+      <div class="row">
+        
+
+
+          <div class="col s12 m6 l4" ng-repeat="n in movie.PlaM  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/A1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.PlaM }}
+                </span>
+              </div>
+
+
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.PlaM}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex1').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex1'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/A1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Ya viene el mundial y tu peludo no se puede quedar si su playera de la selección! </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$343.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+          <div class="col s12 m6 l4" ng-repeat="n in movie.PlA | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/A2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.PlA }}
+                </span>
+              </div>
+
+
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.PlA}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex5').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex5'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/A2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Ya viene el mundial y tu peludo no se puede quedar si su playera de la selección! </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$343.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.PlAr  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/A4.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.PlAr }}
+                </span>
+              </div>
+
+
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.PlAr}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex7').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex7'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/A4.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Ya viene el mundial y tu peludo no se puede quedar si su playera de la selección! </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$343.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+<div class="col s12 m6 l4" ng-repeat="n in movie.B1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/B1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.B1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.B1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex15').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex15'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/B1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Hay momentos en que jugar a la pelota con tu peludo es muy cansado, para facilitar el juego Chuck it creó el Tira Pelotas Sport.  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$250.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="col s12 m6 l4" ng-repeat="n in movie.B2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/B2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.B2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.B2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex16').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex16'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/B2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El hueso de Kong Duets Bone es una pelota en forma de hueso llena de diverisión para los perros.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$191.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l4" ng-repeat="n in movie.B3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/B3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.B3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.B3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex17').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex17'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/B3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La KONG Biscuit Ball es una pelota con el centro hueco y cuatro compartimientos en los lados con forma de hueso en el que se le pueden colocar cualquier tipo de premios para que tu peludo disfrute al máximo jugar con ella.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$209.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.D1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/D1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.D1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.D1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex19').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex19'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/D1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Jaula para viaje con carcasa de plástico resistente, fácil de armar. Cada jaula cuenta con un pestillo de compresión de fácil apertura, ventilas laterales de metal. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$1443.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.D2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/D2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.D2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.D2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex22').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex22'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/D2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La Transportadora "Petego" en Forma de Tubo es la más cómoda y ligera del mercado. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$1964.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.D3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/D3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.D3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.D3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex23').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex23'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/D3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La Transportadora Ferplast Atlas Deluxe es una transportadora de viaje de lujo para perros pequeños! </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$673.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.E1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/E1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.E1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.E1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex24').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex24'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/E1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Collar para perro DOGNESS® de alta gama fabricado en nylon estampado en colores ultra-resistente, con forro interior en neopreno, tiras reflectantes y medalla identificativa. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$230.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.E2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/E2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.E2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.E2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex26').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex26'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/E2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Collar para perro DOGNESS® de alta gama fabricado en nylon estampado en colores ultra-resistente, con forro interior en neopreno, tiras reflectantes y medalla identificativa. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$230.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.E3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/E3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.E3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.E3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex27').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex27'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/E3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Collar para perro DOGNESS® de alta gama fabricado en nylon estampado en colores ultra-resistente, con forro interior en neopreno, tiras reflectantes y medalla identificativa. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$230.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.C1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/C1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.C1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.C1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex18').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex18'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/C1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Cojín ''Jax & Bones'' Twig“ tiene un diseño y una tapicería de ramitas increible que le va a encantar a tu perro.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$1700.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.C2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/C2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.C2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.C2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex10').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex10'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/C2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>“Cozy Mat” es un tapete acogedor hecho de tela Crypton® perfecto para perros en movimiento.  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$420.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.C3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/C3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.C3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.C3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex20').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex20'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/C3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Jax & Bones Slumber Circular Pillow es una cama increíblemente cómoda para tu peludo, muy suave y perfecta para que tu perro te acompañe en todos los rincones de tu casa. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$1050.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+    
+              
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.F1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/F1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.F1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.F1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex28').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex28'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/F1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El guante de goma Fancy Pets para almohazar es el accesorio perfecto para cepillar al perro de pelo corto y suave. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$110.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.F2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/F2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.F2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.F2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex29').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex29'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/F2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El cepillo de goma Fancy Pets para masaje es el accesorio perfecto para cepillar y consentir a tu peludo al mismo tiempo.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$220.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.F3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/F3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.F3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.F3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex30').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex30'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/F3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La nueva generación de tijeras Convex 2™ filo inspirado en la tecnología japonesa aplicada en tijeras profesionales. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$3000.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.G1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/G1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.G1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.G1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex31').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex31'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/G1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Spray Dental Fancy Pets es una solución en spray para la higiene bucal de los perros, excelente para la eliminación del sarro. Reduce la placa y mejora el alimento.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$49.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.G2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/G2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.G2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.G2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex32').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex32'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/G2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Spray Dental Fancy Pets es una solución en spray para la higiene bucal de los perros. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$43.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.G3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/G3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.G3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.G3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex33').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex33'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/G3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Aquadent® es una solución refrescante y palatable que debe ser adicionada en el agua de bebida de los perros, para el control del mal aliento.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$315.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+    
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.H1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/H1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.H1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.H1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex40').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex40'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/H1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>Impermeable 'Petrageous' Playtime Slicker Verde </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$103.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.H2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/H2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.H2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.H2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex41').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex41'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/H2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>''Punk Dog T-Shirt" es una playera cómoda y divertida para tu mascota. Combina con los distintos modelos de PetRageous para que tu mascota siempre esté a la moda!</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$100.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.H3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/H3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.H3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.H3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex42').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex42'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/H3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>''Punk Dog Tee Shirt'' es una playera comoda y divertida para tu mascota. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$100.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+    
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.I1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/I1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.I1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.I1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex50').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex50'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/I1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La correa ''Candy Cane'' le dará un estilo único a tu mejor amigo de cuatro patas.  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$125.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.I2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/I2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.I2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.I2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex55').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex55'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/I2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La correa ''Christmas Bones'' le dará un estilo único a tu mejor amigo de cuatro patas. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$125.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  
+            
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.I3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/I3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.I3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.I3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex66').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex66'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/I3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>La correa ''Christmas Bones'' le dará un estilo único a tu mejor amigo de cuatro patas.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$343.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+    
+
+
+
+
+
+
+       <div class="col s12 m6 l4" ng-repeat="n in movie.J1  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/J1.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.J1 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.J1}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex8').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex8'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/J1.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Tazón De Acero Inoxidable Pelu2 es un tazón diseñado para todo tamaño de perro. </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$47.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+ <div class="col s12 m6 l4" ng-repeat="n in movie.J2  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/J2.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.J2 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.J2}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex11').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex11'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/J2.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Tazón De Acero Inoxidable Pelu2 es un tazón diseñado para todo tamaño de perro.  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$47.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l4" ng-repeat="n in movie.J3  | filter: search">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" src="img/Cards/J3.jpg"  width="240" height="280" alt="imagen">
+              </div>
+              <div class="card-content">
+                <i class="material-icons right"></i></span>
+                <span class="card-title activator grey-text text-darken-4"><span>{{n.J3 }}
+                </span>
+              </div>
+              <div class="card-reveal">
+                <div>
+                  <span class="card-title grey-text text-darken-4">
+                    <span>{{n.J3}}</span>
+                    <br>
+                    <i class="material-icons right"></i></span>
+                    <div class="img-zoom-container">
+                      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+                      <script src='jquery.zoom.js'></script>
+                      <script>
+                        $(document).ready(function(){
+                          $('#ex14').zoom();
+                          $('#ex2').zoom({ on:'grab' });
+                          $('#ex3').zoom({ on:'click' });      
+                          $('#ex4').zoom({ on:'toggle' });
+                        });
+                      </script>
+                      <span class='zoom' id='ex14'>
+                        <center>
+                          <br>
+                          <img src='img/Cards/J3.jpg'  width='200px' height='200px' alt='Milenial Pet'/>
+                        </center>
+                      </span>
+                      <br>
+                      <br>
+                      <div style="text-align:center;" style="text-align:justify"><font color=#000>El Tazón De Acero Inoxidable Pelu2 es un tazón diseñado para todo tamaño de perro.  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <div class="center">
+                    <a href="Index.html"  style="margin: 0px 28px 10px 10px;float: left; "><img src="img/Cards/cf.png" alt="carro" height="25px" /></a>
+                    <a href="#" style="border-bottom:855px;"  style="border-right: 60px;"><font color=#000>Precio: <font color=#BD150B><b>$47.00</b></a>
+                      <a href="Index.html"  style="margin: -1px 10px 10px -8px;float: right; "><img src="img/Cards/car.png" alt="carro" height="30px" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+
+
+
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+        </body>
+
+
+      <!-- COMIENZA FOOTER -->  
+  <footer class="page-footer  black"  id="myFooter" >
+
+   <div class="row">
+    <center>
+      <div class="col s12">¡SÍGUENOS EN NUESTRAS REDES SOCIALES!</div>
+      <div class="col s4"></div>
+
+      <div class="row">
+        <div class="col s3"></div>
+
+        <div class="col s12">
+          <center>
+            <br>
+            <br>
+            <span><a href="#arriba" title="Ir arriba"><img src="img/up.png" border="0" width="70" height="70"  href="#abajo" title="Ir arriba"></a></span>
+            <br>
+           <a href="https://www.instagram.com/millennialpetoriginal/" target=”_blank”><img src="img/icon8/instagram.png"/></a>
+            <a href="https://twitter.com/MillennialPet" target=”_blank”><img src="img/icon8/twitter.png"/></a>
+            <a href="https://www.youtube.com/channel/UClZJUBkm3fOpqYz1H1myjkQ" target=”_blank”><img src="img/icon8/youtube.png"/></a>
+            <a href="https://github.com/barcenitas/MillennialPet" target=”_blank”><img src="img/icon8/github-circle.png"/></a>
+            <a href="https://www.facebook.com/Millenial-Pet-127486044782676/" target=”_blank”><img src="img/icon8/facebook.png"/></a>
+
+          </center>
+        </div>
+        <div class="col s3"></div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="col s3"><br>Todos los derechos reservados</div>
+        <div class="col s3"><br>Millennial Pet S.A de C.V</div>
+        <div class="col s3"></div>
+      </div>
+
+
+      <div class="footer-copyright">
+        <div class="col s12">
+          © 2018 Copyright 
+        </div>
+      </div>
+      <br>
+    </footer>
+<!-- TERMINA FOOTER -->
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/app-Productos.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize-productos.min.js"></script>
+        <script src="js/jquery-productos.js"></script>
+        <script src="js/materialize-productos.min.js"></script>
+        <script src="js/appTienda.js"></script>
+        <script src="js/jquery.zoom.min.js"></script>
+        <script type="text/javascript" src="js/app-pro.min.js"></script>
+
+        </html>
